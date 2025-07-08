@@ -1,0 +1,60 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#4ecdc4;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Heart gradient -->
+    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8e8e;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Share icon gradient -->
+    <linearGradient id="shareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="60" fill="url(#bgGradient)" rx="8"/>
+  
+  <!-- Share icon (network nodes) -->
+  <g transform="translate(15,15)">
+    <!-- Connecting lines -->
+    <line x1="8" y1="8" x2="22" y2="22" stroke="url(#shareGradient)" stroke-width="2" opacity="0.7"/>
+    <line x1="22" y1="8" x2="8" y2="22" stroke="url(#shareGradient)" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Nodes -->
+    <circle cx="8" cy="8" r="4" fill="url(#shareGradient)"/>
+    <circle cx="22" cy="8" r="4" fill="url(#shareGradient)"/>
+    <circle cx="8" cy="22" r="4" fill="url(#shareGradient)"/>
+    <circle cx="22" cy="22" r="4" fill="url(#shareGradient)"/>
+    <circle cx="15" cy="15" r="3" fill="url(#shareGradient)"/>
+  </g>
+  
+  <!-- Heart emoji -->
+  <g transform="translate(45,18)">
+    <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" 
+          fill="url(#heartGradient)" 
+          transform="scale(0.8,0.8)"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="80" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">
+    Share
+  </text>
+  <text x="80" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#555">
+    Emotion
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="170" cy="15" r="2" fill="#ff6b6b" opacity="0.6"/>
+  <circle cx="180" cy="25" r="1.5" fill="#4ecdc4" opacity="0.6"/>
+  <circle cx="175" cy="35" r="1" fill="#45b7d1" opacity="0.6"/>
+  <circle cx="185" cy="45" r="1.5" fill="#ff8e8e" opacity="0.6"/>
+</svg>

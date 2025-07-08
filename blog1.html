@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Mindful Travel - Hamim's Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00ccff, #5865f2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .author-details {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .publish-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        .article-content {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .article-text p {
+            margin-bottom: 20px;
+        }
+
+        .pull-quote {
+            font-size: 1.3em;
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .inline-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 25px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .engagement-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .like-btn {
+            background: linear-gradient(45deg, #ff6b6b, #12ee06);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .like-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .like-btn.liked {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+
+        .like-count {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .comment-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .comment-form {
+            margin-bottom: 30px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+            margin-bottom: 10px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .comment-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .comment-btn {
+            background: linear-gradient(45deg, #00d4ff, #5865f2);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .comment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #00d4ff;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00d4ff;
+        }
+
+        .comment-time {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .comment-text {
+            line-height: 1.6;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .article-content {
+                padding: 20px;
+            }
+            
+            .featured-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>The Art of Mindful Travel: Finding Inner Peace in Motion</h1>
+            <div class="author-info">
+                <div class="author-avatar">H</div>
+                <div class="author-details">
+                    <div class="author-name">Hamim</div>
+                    <div class="publish-date">march 4, 2025</div>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-content">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Serene mountain landscape" class="featured-image">
+
+            <div class="article-text">
+                <p>In our fast-paced world, travel has become synonymous with rushing from one destination to another, checking off items from our bucket lists, and capturing the perfect Instagram shot. But what if we approached travel differently? What if we used our journeys as opportunities for self-reflection and inner growth?</p>
+
+                <p>Mindful travel isn't about the destination—it's about the transformation that happens within us as we move through the world with intention and awareness. It's about being present in each moment, whether we're watching a sunrise over ancient temples or sharing a meal with locals in a small village.</p>
+
+                <div class="pull-quote">
+                    "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes." - Marcel Proust
+                </div>
+
+                <p>During my recent journey through Southeast Asia, I discovered that the most profound experiences weren't the ones I had planned. They emerged from moments of stillness—sitting quietly in a temple courtyard, watching the rain fall on rice paddies, or simply observing the rhythm of daily life in a bustling market.</p>
+
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Buddhist temple at sunset" class="inline-image">
+
+                <p>Self-observation becomes the compass that guides us through these experiences. When we pay attention to our reactions, our judgments, and our emotional responses to new cultures and situations, we learn as much about ourselves as we do about the places we visit.</p>
+
+                <p>I remember sitting in a crowded train in Vietnam, initially frustrated by the delay and the noise. But as I shifted my focus from resistance to curiosity, I began to notice the intricate social dynamics around me—the way strangers shared food, how children played games with simple objects, and the gentle patience everyone showed despite the circumstances.</p>
+
+                <p>This shift in perspective taught me that mindful travel isn't about having perfect experiences—it's about finding meaning in whatever arises. It's about recognizing that every moment, comfortable or challenging, offers an opportunity for growth and understanding.</p>
+
+                <p>As travelers, we have the unique privilege of stepping outside our familiar patterns and seeing ourselves reflected in new environments. The key is to approach each journey with an open heart and a curious mind, ready to discover not just new places, but new aspects of ourselves.</p>
+            </div>
+
+            <div class="tags">
+                <span class="tag">#Travel</span>
+                <span class="tag">#Mindfulness</span>
+                <span class="tag">#SelfDiscovery</span>
+                <span class="tag">#Lifestyle</span>
+                <span class="tag">#InnerGrowth</span>
+            </div>
+        </article>
+
+        <section class="engagement-section">
+            <div class="like-section">
+                <button class="like-btn" id="likeBtn">
+                    <span id="likeIcon">♡</span>
+                    <span>Like</span>
+                </button>
+                <span class="like-count"><span id="likeCount">42</span> people liked this</span>
+            </div>
+
+            <div class="comment-section">
+                <h3>Comments (<span id="commentCount">2</span>)</h3>
+                
+                <form class="comment-form" id="commentForm">
+                    <textarea class="comment-input" id="commentInput" placeholder="Share your thoughts about mindful travel..."></textarea>
+                    <button type="submit" class="comment-btn">Post Comment</button>
+                </form>
+
+                <div class="comments-list" id="commentsList">
+                    <div class="comment">
+                        <div class="comment-author">Sara</div>
+                        <div class="comment-time">2 hours ago</div>
+                        <div class="comment-text">This really resonates with me! I had a similar experience in Japan where the delayed train actually led to the most beautiful conversation with an elderly local. Sometimes the best moments are unplanned.</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-author">Joy</div>
+                        <div class="comment-time">5 hours ago</div>
+                        <div class="comment-text">Beautiful article, Joseph. I'm planning a trip to Thailand next month and this has inspired me to approach it more mindfully. Thank you for the perspective shift!</div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Like functionality
+        let likeCount = 42;
+        let isLiked = false;
+        
+        const likeBtn = document.getElementById('likeBtn');
+        const likeIcon = document.getElementById('likeIcon');
+        const likeCountSpan = document.getElementById('likeCount');
+        
+        likeBtn.addEventListener('click', function() {
+            if (isLiked) {
+                likeCount--;
+                isLiked = false;
+                likeIcon.textContent = '♡';
+                likeBtn.classList.remove('liked');
+            } else {
+                likeCount++;
+                isLiked = true;
+                likeIcon.textContent = '♥';
+                likeBtn.classList.add('liked');
+            }
+            
+            likeCountSpan.textContent = likeCount;
+        });
+        
+        // Comment functionality
+        let commentCounter = 3;
+        
+        const commentForm = document.getElementById('commentForm');
+        const commentInput = document.getElementById('commentInput');
+        const commentsList = document.getElementById('commentsList');
+        const commentCountSpan = document.getElementById('commentCount');
+        
+        // Array of random names for demo purposes
+        const randomNames = [
+            'Alex Johnson', 'Maya Patel', 'Chris Thompson', 'Lisa Kim', 
+            'David Brown', 'Anna Sofia', 'Mike Wilson', 'Grace Lee',
+            'Tom Anderson', 'Nina Rodriguez', 'James Taylor', 'Sophie Chen'
+        ];
+        
+        function getRandomName() {
+            return randomNames[Math.floor(Math.random() * randomNames.length)];
+        }
+        
+        function formatTimeAgo() {
+            return 'Just now';
+        }
+        
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const commentText = commentInput.value.trim();
+            if (commentText === '') return;
+            
+            // Create new comment element
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.style.opacity = '0';
+            newComment.style.transform = 'translateY(-20px)';
+            
+            // Use "You" as the author name for user comments
+            newComment.innerHTML = `
+                <div class="comment-author">You</div>
+                <div class="comment-time">${formatTimeAgo()}</div>
+                <div class="comment-text">${commentText}</div>
+            `;
+            
+            // Add to the beginning of comments list (top of existing comments)
+            commentsList.insertBefore(newComment, commentsList.firstChild);
+            
+            // Animate in
+            setTimeout(() => {
+                newComment.style.transition = 'all 0.5s ease';
+                newComment.style.opacity = '1';
+                newComment.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Update comment count
+            commentCounter++;
+            commentCountSpan.textContent = commentCounter;
+            
+            // Clear input and reset height
+            commentInput.value = '';
+            commentInput.style.height = 'auto';
+            
+            // Scroll to the new comment smoothly
+            setTimeout(() => {
+                newComment.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 300);
+        });
+        
+        // Auto-resize textarea
+        commentInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    </script>
+</body>
+</html>

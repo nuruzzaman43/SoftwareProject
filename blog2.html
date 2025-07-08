@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>তামিল সিনেমার সেরা চলচ্চিত্র - সিনেমা ব্লগ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-title {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.8)); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+        }
+
+        .article {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4ecdc4;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #d0d0d0;
+            text-align: center;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .movie-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .movie-card:hover::before {
+            left: 100%;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.2);
+        }
+
+        .movie-title {
+            font-size: 1.4rem;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .movie-year {
+            font-size: 0.9rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .movie-description {
+            color: #c0c0c0;
+            line-height: 1.7;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-right: 0.5rem;
+        }
+
+        .rating-text {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(234, 12, 12, 0.08);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            min-width: 150px;
+            margin: 0.5rem;
+            transition: transform 2s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .load-more {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .load-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .load-more::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .load-more:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .movie-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">তামিল সিনেমার সেরা চলচ্চিত্র</h1>
+            <p class="subtitle">দক্ষিণ ভারতীয় সিনেমার অমর কীর্তি</p>
+        </header>
+
+        <article class="article">
+            <h2 class="section-title">ভূমিকা</h2>
+            <p class="intro-text">
+                তামিল সিনেমা জগতে রয়েছে অসংখ্য মাস্টারপিস যা শুধু ভারতেই নয়, বিশ্বব্যাপী প্রশংসিত হয়েছে। 
+                এই ব্লগ পোস্টে আমরা তামিল সিনেমার সেরা কিছু চলচ্চিত্র নিয়ে আলোচনা করব যা সত্যিই দেখার মতো।
+            </p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">সেরা চলচ্চিত্র</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">বছরের ইতিহাস</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">জাতীয় পুরস্কার</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">মিলিয়ন ভক্ত</div>
+                </div>
+            </div>
+
+            <div class="movie-grid" id="movieGrid">
+                <div class="movie-card">
+                    <h3 class="movie-title">বাহুবলী (Baahubali)</h3>
+                    <p class="movie-year">২০১৫ - ২০১৭</p>
+                    <p class="movie-description">
+                        এস.এস. রাজামৌলির পরিচালনায় এই মহাকাব্যিক চলচ্চিত্রটি ভারতীয় সিনেমার ইতিহাসে নতুন মাত্রা যোগ করেছে। 
+                        অসাধারণ ভিজ্যুয়াল এফেক্টস এবং চমৎকার গল্প বলার কৌশল দিয়ে এটি বিশ্বব্যাপী দর্শকদের মুগ্ধ করেছে।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">৯.২/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <h3 class="movie-title">কে.জি.এফ (KGF)</h3>
+                    <p class="movie-year">২০১৮ - ২০২২</p>
+                    <p class="movie-description">
+                        যশের অভিনয়ে এই অ্যাকশন থ্রিলার চলচ্চিত্রটি দক্ষিণ ভারতীয় সিনেমাকে নতুন উচ্চতায় নিয়ে গেছে। 
+                        দুর্দান্ত সিনেমাটোগ্রাফি এবং প্রভাবশালী গল্প দিয়ে এটি সবার মন জয় করেছে।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">৮.৮/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <h3 class="movie-title">আর.আর.আর (RRR)</h3>
+                    <p class="movie-year">২০২২</p>
+                    <p class="movie-description">
+                        এস.এস. রাজামৌলির আরেকটি মাস্টারপিস। এই চলচ্চিত্রটি হলিউডেও ব্যাপক প্রশংসা পেয়েছে এবং 
+                        অস্কার পুরস্কারও জিতেছে। অসাধারণ অ্যাকশন সিকোয়েন্স এবং দেশপ্রেমের গল্প।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">৯.০/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <h3 class="movie-title">পুষ্পা (Pushpa)</h3>
+                    <p class="movie-year">২০২১</p>
+                    <p class="movie-description">
+                        আল্লু আর্জুনের অভিনয়ে এই চলচ্চিত্রটি সারা ভারতে জনপ্রিয় হয়েছে। 
+                        চন্দন কাঠ চোরাচালানের গল্প নিয়ে তৈরি এই সিনেমা দর্শকদের মুগ্ধ করেছে।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৮.৫/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <h3 class="movie-title">কাবালি (Kabali)</h3>
+                    <p class="movie-year">২০১৬</p>
+                    <p class="movie-description">
+                        রজনীকান্তের অভিনয়ে এই চলচ্চিত্রটি একটি আবেগপূর্ণ গল্প। 
+                        মালয়েশিয়ার পটভূমিতে তৈরি এই সিনেমা সুপারস্টারের অভিনয় দক্ষতা প্রমাণ করেছে।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৭.৮/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <h3 class="movie-title">আনন্দ (Anand)</h3>
+                    <p class="movie-year">২০০৪</p>
+                    <p class="movie-description">
+                        মুরুগদাসের পরিচালনায় এই রোমান্টিক কমেডি চলচ্চিত্রটি তামিল সিনেমার একটি ক্লাসিক। 
+                        হার্ষ বর্ধনের অভিনয় এবং আবেগপূর্ণ গল্প দর্শকদের হৃদয় ছুঁয়ে যায়।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৮.২/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card hidden" id="hiddenMovies">
+                    <h3 class="movie-title">মাস্টার (Master)</h3>
+                    <p class="movie-year">২০২১</p>
+                    <p class="movie-description">
+                        বিজয়ের অভিনয়ে এই অ্যাকশন থ্রিলার চলচ্চিত্রটি একটি শিক্ষকের গল্প যিনি বিপথগামী 
+                        যুবকদের সঠিক পথে আনার চেষ্টা করেন। দুর্দান্ত অভিনয় এবং সামাজিক বার্তা।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৮.০/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card hidden">
+                    <h3 class="movie-title">ভিক্রম (Vikram)</h3>
+                    <p class="movie-year">২০২২</p>
+                    <p class="movie-description">
+                        কমল হাসানের অভিনয়ে এই অ্যাকশন থ্রিলার চলচ্চিত্রটি একটি গুপ্তচরের গল্প। 
+                        দুর্দান্ত অ্যাকশন সিকোয়েন্স এবং রহস্যময় কাহিনী দর্শকদের আগ্রহী করে তোলে।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৮.৩/১০</span>
+                    </div>
+                </div>
+
+                <div class="movie-card hidden">
+                    <h3 class="movie-title">কেত্তি (Kaithi)</h3>
+                    <p class="movie-year">২০১৯</p>
+                    <p class="movie-description">
+                        কার্তিকের অভিনয়ে এই অ্যাকশন থ্রিলার চলচ্চিত্রটি একটি বাবার গল্প যিনি তার মেয়ের 
+                        সাথে দেখা করার জন্য সংগ্রাম করেন। রাত্রিকালীন অ্যাকশনে ভরপুর এই সিনেমা।
+                    </p>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">৮.৬/১০</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="load-more" id="loadMore">আরও দেখুন</button>
+        </article>
+
+        <article class="article">
+            <h2 class="section-title">উপসংহার</h2>
+            <p class="intro-text">
+                তামিল সিনেমা জগতে এই চলচ্চিত্রগুলি শুধু বিনোদনই নয়, বরং শিল্পের নিদর্শন। 
+                প্রতিটি সিনেমা তার নিজস্ব বৈশিষ্ট্য এবং আবেদন নিয়ে দর্শকদের মন জয় করেছে। 
+                আপনি যদি ভাল সিনেমা দেখতে ভালোবাসেন, তাহলে এই চলচ্চিত্রগুলি অবশ্যই দেখুন।
+            </p>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; ২০২৪ সিনেমা ব্লগ। সর্বস্বত্ব সংরক্ষিত।</p>
+        </footer>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <script>
+        // Load More Functionality
+        const loadMoreBtn = document.getElementById('loadMore');
+        const hiddenMovies = document.querySelectorAll('.movie-card.hidden');
+        let currentIndex = 0;
+
+        loadMoreBtn.addEventListener('click', function() {
+            for (let i = currentIndex; i < currentIndex + 3 && i < hiddenMovies.length; i++) {
+                hiddenMovies[i].classList.remove('hidden');
+            }
+            currentIndex += 3;
+
+            if (currentIndex >= hiddenMovies.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+
+        // Scroll to Top Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all movie cards
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Dynamic stats counter
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current) + '+';
+                
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Animate counters when they come into view
+        const statObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElement = entry.target.querySelector('.stat-number');
+                    const targetValue = parseInt(numberElement.textContent);
+                    animateCounter(numberElement, targetValue);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-item').forEach(item => {
+            statObserver.observe(item);
+        });
+    </script>
+</body>
+</html>

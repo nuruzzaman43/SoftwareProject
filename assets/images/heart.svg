@@ -1,0 +1,51 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="200" height="100" fill="#2d3748" rx="8"/>
+  
+  <!-- Network/Connection circles -->
+  <g transform="translate(30, 25)">
+    <!-- Center circle -->
+    <circle cx="25" cy="25" r="8" fill="#40e0d0"/>
+    
+    <!-- Top circle -->
+    <circle cx="25" cy="5" r="8" fill="#40e0d0"/>
+    
+    <!-- Bottom circle -->
+    <circle cx="25" cy="45" r="8" fill="#40e0d0"/>
+    
+    <!-- Left circle -->
+    <circle cx="5" cy="25" r="8" fill="#40e0d0"/>
+    
+    <!-- Right circle -->
+    <circle cx="45" cy="25" r="8" fill="#40e0d0"/>
+    
+    <!-- Connection lines -->
+    <line x1="25" y1="13" x2="25" y2="17" stroke="#40e0d0" stroke-width="3" opacity="0.6"/>
+    <line x1="25" y1="33" x2="25" y2="37" stroke="#40e0d0" stroke-width="3" opacity="0.6"/>
+    <line x1="13" y1="25" x2="17" y2="25" stroke="#40e0d0" stroke-width="3" opacity="0.6"/>
+    <line x1="33" y1="25" x2="37" y2="25" stroke="#40e0d0" stroke-width="3" opacity="0.6"/>
+  </g>
+  
+  <!-- Heart shape -->
+  <g transform="translate(130, 30)">
+    <path d="M20,40 C20,35 15,30 10,30 C5,30 0,35 0,40 C0,45 10,55 20,60 C30,55 40,45 40,40 C40,35 35,30 30,30 C25,30 20,35 20,40 Z" fill="#ff6b6b"/>
+  </g>
+  
+  <!-- Glow effects -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Apply glow to circles -->
+  <style>
+    circle {
+      filter: url(#glow);
+    }
+  </style>
+</svg>
